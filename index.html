@@ -1,664 +1,232 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexsandra Tavares - Cibersegurança & Data Analytics</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio da Alê | Cibersegurança & Dados</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            overflow-x: hidden;
-        }
+  <!-- SEO -->
+  <meta name="description" content="Portfólio de Alexsandra Tavares — Engenharia de Software, Cibersegurança (Blue Team), Segurança da Informação e Análise de Dados.">
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            text-align: center;
-        }
+  <!-- Open Graph -->
+  <meta property="og:title" content="Portfólio da Alê | Cibersegurança & Dados">
+  <meta property="og:description" content="Minha trajetória em Engenharia de Software, Blue Team, Segurança da Informação e Dados.">
+  <meta property="og:image" content="assets/og/alexsandra-og.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seudominio.com">
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            animation: float 6s ease-in-out infinite;
-        }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfólio da Alê | Cibersegurança & Dados">
+  <meta name="twitter:description" content="Engenharia de Software, Blue Team, Segurança da Informação e Dados.">
+  <meta name="twitter:image" content="assets/og/alexsandra-og.jpg">
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #64ffda, #1de9b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: brightness(1); }
-            to { filter: brightness(1.2); }
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-dark {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-        }
-
-        .section-light {
-            background: white;
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            color: #333;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .skill-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 30px;
-            position: relative;
-            margin: 3rem 0;
-            width: 50%;
-            opacity: 0;
-            animation: slideIn 0.6s ease forwards;
-        }
-
-        .timeline-item:nth-child(even) {
-            align-self: flex-end;
-            justify-content: flex-start;
-            padding-left: 30px;
-            padding-right: 0;
-            margin-left: 50%;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 400px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background: #667eea;
-            border: 4px solid white;
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .timeline-date {
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .timeline-company {
-            color: #764ba2;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(44, 62, 80, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background: rgba(44, 62, 80, 0.98);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #64ffda;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #64ffda;
-        }
-
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .cert-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border-radius: 50%;
-            animation: floatShapes 15s infinite ease-in-out;
-        }
-
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 70%;
-            right: 10%;
-            animation-delay: 5s;
-        }
-
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 40%;
-            right: 30%;
-            animation-delay: 10s;
-        }
-
-        @keyframes floatShapes {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
-            66% { transform: translateY(30px) rotate(240deg); }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .timeline::before { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; }
-            .timeline-item:nth-child(even) { margin-left: 0; padding-left: 50px; }
-            .nav-links { display: none; }
-        }
-    </style>
+  <!-- Estilo simples -->
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#0b0c10; color:#c5c6c7; }
+    header { background:#1f2833; color:#66fcf1; padding:20px; text-align:center; }
+    header h1 { margin:0; font-size:2em; }
+    header p { font-size:1.2em; color:#45a29e; }
+    nav { background:#0b0c10; padding:10px; text-align:center; }
+    nav a { color:#66fcf1; margin:0 15px; text-decoration:none; }
+    section { padding:40px 20px; max-width:900px; margin:auto; }
+    h2 { color:#66fcf1; margin-bottom:15px; }
+    .skills span { display:inline-block; background:#1f2833; color:#fff; padding:5px 10px; margin:5px; border-radius:8px; }
+    .card { background:#1f2833; padding:20px; margin:15px 0; border-radius:10px; }
+    .card a { color:#66fcf1; text-decoration:none; }
+    footer { background:#1f2833; text-align:center; color:#c5c6c7; padding:20px; margin-top:40px; }
+    .chatbot { position:fixed; bottom:20px; right:20px; background:#45a29e; border:none; border-radius:50%; padding:15px; cursor:pointer; font-size:20px; color:#fff; box-shadow:0 0 10px #000; }
+    .chat-window { position:fixed; bottom:80px; right:20px; width:300px; background:#1f2833; border-radius:10px; box-shadow:0 0 15px #000; display:none; flex-direction:column; }
+    .chat-header { background:#45a29e; padding:10px; color:#fff; border-top-left-radius:10px; border-top-right-radius:10px; font-weight:bold; }
+    .chat-messages { padding:10px; height:250px; overflow-y:auto; }
+    .chat-input { display:flex; }
+    .chat-input input { flex:1; padding:10px; border:none; border-radius:0 0 0 10px; }
+    .chat-input button { padding:10px; border:none; background:#66fcf1; color:#000; cursor:pointer; border-radius:0 0 10px 0; }
+    .meg-answer { background:#0b0c10; padding:10px; margin:10px 0; border-radius:8px; }
+  </style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
 
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">ALEXSANDRA TAVARES</div>
-            <ul class="nav-links">
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experiência</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </div>
-    </nav>
+<header>
+  <h1>Alexsandra Tavares</h1>
+  <p>Engenharia de Software | Cibersegurança | Blue Team | Dados</p>
+</header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>ALEXSANDRA TAVARES</h1>
-            <p>Especialista em Cibersegurança & Data Analytics</p>
-            <p>Blue Team • Análise de Vulnerabilidades • Machine Learning</p>
-            <div class="cta-buttons">
-                <a href="#experience" class="btn btn-primary">Ver Experiência</a>
-                <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
-            </div>
-        </div>
-    </section>
+<nav>
+  <a href="#sobre">Sobre</a>
+  <a href="#softskills">Soft Skills</a>
+  <a href="#hardskills">Hard Skills</a>
+  <a href="#experiencia">Experiência</a>
+  <a href="#programas">Programas</a>
+  <a href="#projetos">Projetos</a>
+</nav>
 
-    <section id="about" class="section section-light">
-        <h2>Sobre Mim</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
-            <p>Profissional em transição de carreira da área educacional para Tecnologia, com especialização em <strong>Cibersegurança</strong> e <strong>Análise de Dados</strong>. Atuo na defesa cibernética (Blue Team), análise de vulnerabilidades, e desenvolvimento de modelos preditivos para detecção de anomalias e fraudes.</p>
-            <p style="margin-top: 1rem;">Participante ativa em comunidades de tecnologia como Hackers do Bem, WoMakersCode e palestrante em eventos como Campus Party e TechWoman.</p>
-        </div>
-    </section>
+<section id="sobre">
+  <h2>Sobre mim</h2>
+  <p>Sou estudante de Engenharia de Software com especialização em Segurança da Informação e Análise de Dados. Tenho experiência prática em Blue Team, participação em bootcamps e programas de capacitação. Minha trajetória integra tecnologia, educação e gestão de projetos.</p>
+</section>
 
-    <section id="skills" class="section section-dark">
-        <h2>Hard Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>🛡️ Cibersegurança</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li>• Blue Team & SOC</li>
-                    <li>• SIEM (Splunk)</li>
-                    <li>• Análise de Vulnerabilidades</li>
-                    <li>• Wireshark, Snort, Nessus</li>
-                    <li>• Burp Suite, Kali Linux</li>
-                    <li>• LGPD, ISO 27001</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>📊 Análise de Dados</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li>• Python (pandas, numpy, scikit-learn)</li>
-                    <li>• SQL, Power BI, Tableau</li>
-                    <li>• Machine Learning</li>
-                    <li>• Análise Estatística</li>
-                    <li>• ETL & Web Scraping</li>
-                    <li>• PostgreSQL, MongoDB</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>☁️ Cloud & DevOps</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li>• AWS, Azure</li>
-                    <li>• Docker & Contêineres</li>
-                    <li>• Bash, PowerShell</li>
-                    <li>• Git & GitHub</li>
-                    <li>• Scrum, Kanban</li>
-                    <li>• Automação de Processos</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<section id="softskills">
+  <h2>Soft Skills</h2>
+  <div class="skills">
+    <span>Resiliência</span>
+    <span>Comunicação</span>
+    <span>Trabalho em equipe</span>
+    <span>Atenção a detalhes</span>
+    <span>Pensamento crítico</span>
+  </div>
+</section>
 
-    <section id="experience" class="section section-light">
-        <h2>Experiência & Timeline</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024 - Atual</div>
-                    <div class="timeline-title">Blue Team Analyst</div>
-                    <div class="timeline-company">Hackers do Bem</div>
-                    <p>Monitoramento SIEM, implementação de políticas IAM e resposta a incidentes de segurança (SOC).</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-title">Cyber Academy</div>
-                    <div class="timeline-company">FEBRABAN</div>
-                    <p>Simulações de ataques cibernéticos, implementação de medidas defensivas e análise de fraudes bancárias.</p>
-                </div>
-            </div>
+<section id="hardskills">
+  <h2>Hard Skills</h2>
+  <div class="skills">
+    <span>Python & Django</span>
+    <span>SQL</span>
+    <span>Docker</span>
+    <span>SIEM / Splunk</span>
+    <span>Cloud (AWS, Azure, Oracle)</span>
+    <span>Power BI</span>
+    <span>Resposta a Incidentes</span>
+    <span>IDS / Snort</span>
+  </div>
+</section>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-title">Data Analytics Bootcamp</div>
-                    <div class="timeline-company">WoMakersCode</div>
-                    <p>Desenvolvimento de modelos ML para detecção de anomalias e análise preditiva de dados do Procon.</p>
-                </div>
-            </div>
+<section id="experiencia">
+  <h2>Experiência</h2>
+  <p>Participei de diversos bootcamps, projetos educacionais e voluntariado em eventos de tecnologia. Atuei em gestão de projetos educacionais, treinamentos e apoio em iniciativas tecnológicas.</p>
+</section>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2019 - 2021</div>
-                    <div class="timeline-title">Coordenadora de Projetos</div>
-                    <div class="timeline-company">Secretaria de Programas Sociais</div>
-                    <p>Implementação de governança de segurança, análise de dados com Power BI e desenvolvimento de modelos preditivos.</p>
-                </div>
-            </div>
+<section id="programas">
+  <h2>Programas & Residências</h2>
+  <div class="card">
+    <h3>Residência Blue Team (RNP - Programa Hacker do Bem)</h3>
+    <p>Atuação prática em SOC, defesa cibernética e análise de logs.</p>
+  </div>
+  <div class="card">
+    <h3>Bolsa Futuro Digital (SoftexPE + Governo Federal)</h3>
+    <p>Formação em programação backend Python com Django.</p>
+  </div>
+</section>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2015 - 2016</div>
-                    <div class="timeline-title">Assistente de Monitoramento</div>
-                    <div class="timeline-company">Secretaria de Educação - PE</div>
-                    <p>Análises estatísticas para prevenção de evasão escolar usando Python e SQL para identificação de padrões.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="projetos">
+  <h2>Projetos & Estudos de Caso</h2>
+  <div class="card">
+    <h3>Playbook de Resposta a Incidentes</h3>
+    <a href="#">Ver projeto</a>
+  </div>
+  <div class="card">
+    <h3>Detecção de Anomalias em Splunk</h3>
+    <a href="#">Ver projeto</a>
+  </div>
+  <div class="card">
+    <h3>Regras IDS com Snort</h3>
+    <a href="#">Ver projeto</a>
+  </div>
+  <div class="card">
+    <h3>Machine Learning para Fraude</h3>
+    <a href="#">Ver projeto</a>
+  </div>
+  <div class="card">
+    <h3>API Django para Incidentes</h3>
+    <a href="#">Ver projeto</a>
+  </div>
+  <div class="card">
+    <h3>Dashboard Power BI para SOC</h3>
+    <a href="#">Ver projeto</a>
+  </div>
+</section>
 
-    <section class="section section-dark">
-        <h2>Certificações</h2>
-        <div class="certifications">
-            <div class="cert-card">
-                <strong>2025</strong><br>
-                Especialização Blue Team<br>
-                <em>Hackers do Bem</em>
-            </div>
-            <div class="cert-card">
-                <strong>2024</strong><br>
-                Cyber Academy<br>
-                <em>FEBRABAN</em>
-            </div>
-            <div class="cert-card">
-                <strong>2024</strong><br>
-                Analista de Cibersegurança<br>
-                <em>IPED</em>
-            </div>
-            <div class="cert-card">
-                <strong>2024</strong><br>
-                Full Stack Cloud Computing<br>
-                <em>Campinho Digital</em>
-            </div>
-            <div class="cert-card">
-                <strong>2023</strong><br>
-                Data Women Engineers<br>
-                <em>DataEX</em>
-            </div>
-            <div class="cert-card">
-                <strong>2022</strong><br>
-                Git, GitHub, SQL, Agile<br>
-                <em>Alura</em>
-            </div>
-        </div>
-    </section>
+<footer id="footer">
+  <p>© 2025 Alexsandra Tavares. Todos os direitos reservados.</p>
+  <p>
+    <a href="https://linkedin.com/in/">LinkedIn</a> |
+    <a href="https://github.com/">GitHub</a> |
+    <a href="mailto:alexsandra@email.com">E-mail</a>
+  </p>
+</footer>
 
-    <section id="contact" class="section section-light">
-        <h2>Vamos Conversar?</h2>
-        <div class="contact-info">
-            <div class="contact-card">
-                <div class="contact-icon">📞</div>
-                <h3>WhatsApp</h3>
-                <p>(81) 99218-9743</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">✉️</div>
-                <h3>Email</h3>
-                <p>alexsa.tavares@gmail.com</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">🔗</div>
-                <h3>LinkedIn</h3>
-                <p>linkedin.com/in/alexsandrait</p>
-            </div>
-            <div class="contact-card">
-                <div class="contact-icon">💻</div>
-                <h3>GitHub</h3>
-                <p>github.com/alexsabrasil</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <p style="font-size: 1.1rem; color: #667eea;">📍 Recife - Pernambuco - Brasil</p>
-            <p style="margin-top: 1rem;"><strong>Idiomas:</strong> Inglês (B2) | Espanhol (B1)</p>
-        </div>
-    </section>
+<!-- Botão Chatbot -->
+<button class="chatbot" onclick="toggleChat()">🤖</button>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+<!-- Janela Chatbot -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">Chatbot Meg</div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Pergunte à Meg...">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<script>
+function toggleChat(){
+  const w = document.getElementById("chatWindow");
+  w.style.display = (w.style.display==="flex")?"none":"flex";
+}
 
-        // Timeline animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+function appendMessage(sender, text){
+  const box=document.getElementById("chatMessages");
+  const div=document.createElement("div");
+  div.innerHTML=`<p><strong>${sender}:</strong> ${text}</p>`;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.3s';
-                    entry.target.style.animationFillMode = 'forwards';
-                }
-            });
-        }, observerOptions);
+function sendMessage(){
+  const input=document.getElementById("chatInput");
+  const msg=input.value.trim();
+  if(!msg) return;
+  appendMessage("Você", msg);
+  const reply=Meg.answer(msg);
+  appendMessage("Meg", reply);
+  input.value="";
+}
 
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
-        });
+// FAQ dinâmica
+const Meg = (() => {
+  const sections = {
+    soft: "softskills",
+    hard: "hardskills",
+    exp: "experiencia",
+    programas: "programas",
+    projetos: "projetos",
+    contato: "footer"
+  };
 
-        // Add some interactive effects
-        document.querySelectorAll('.skill-card, .cert-card, .contact-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+  function normalize(str){
+    return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function getSectionContent(id){
+    const el=document.getElementById(id);
+    return el?el.innerText.trim():"Não encontrei nada aqui.";
+  }
+
+  function matchIntent(q){
+    const n=normalize(q);
+    if(n.includes("soft")) return "soft";
+    if(n.includes("habilidade") && n.includes("pessoa")) return "soft";
+    if(n.includes("hard") || n.includes("tecnic")) return "hard";
+    if(n.includes("experi")) return "exp";
+    if(n.includes("programa") || n.includes("resid")) return "programas";
+    if(n.includes("projeto") || n.includes("case")) return "projetos";
+    if(n.includes("contato") || n.includes("linkedin") || n.includes("email")) return "contato";
+    return null;
+  }
+
+  function answer(q){
+    const intent=matchIntent(q);
+    if(!intent) return `🤖 Não tenho certeza sobre isso, tente perguntar sobre <strong>soft skills</strong>, <strong>hard skills</strong>, <strong>experiência</strong>, <strong>programas</strong> ou <strong>projetos</strong>.`;
+    const content=getSectionContent(sections[intent]);
+    return `<div class="meg-answer"><h4>📌 ${intent.toUpperCase()}</h4><p>${content.replace(/\n/g, "<br>")}</p></div>`;
+  }
+
+  return { answer };
+})();
+</script>
+
 </body>
 </html>
